@@ -10,17 +10,22 @@ const Home = () => {
 	const [newTodo, setNewTodo]=useState (" ");
 	const handleOnchange=(e)=>{
 		setNewTodo(e.target.value);
+		console.log(newTodo);
 	};
    function addNewTodo(){
 	   setTodos(todos.concat(newTodo));
 	   console.log(todos);
    }
-   const deleteTodo=(index)=>{
-	 setTodos (todos.filter((t,index)=>{
+}
+ 
+	 function deleteTodo(index){
+		setTodos(todos.filter((t,i)=>{
 		return i !==index
-	 }));
+		}));
+	}
+		
 
-   }
+   
 	return (
 		<div className="inputs">
 			<h1>Deucalinos weird to Dos</h1>
@@ -31,11 +36,11 @@ const Home = () => {
 			  </button>
 			  
 				{todos.map((t, index)=>(
-					<Notes text={t} index={index} deleteTodo={deleteTodo}/>
-				)) }
+					<Notes text= {t} index={index} deleteTodo={deleteTodo}/>
+				))}
             </div>
 			</div>
 	);
-};
+
 
 export default Home;
